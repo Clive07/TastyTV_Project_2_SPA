@@ -1,9 +1,6 @@
 import React from "react";
+import LandingPage from "./LandingComponent";
 
 export default function MainContainer() {
-  return (
-    <div>
-      <h2>The Main Works too!</h2>
-    </div>
-  );
+  return <LandingPage />;
 }

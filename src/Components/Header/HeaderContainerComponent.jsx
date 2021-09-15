@@ -1,9 +1,15 @@
+import "../../styles/header-styles.css";
 import React from "react";
 
 export default function HeaderContainer() {
   return (
-    <div>
-      <h2>This is Working!</h2>
-    </div>
+    <header>
+      <h1 id="title">TastyTV's App!</h1>
+      <nav id="navbar">
+        <span className="navbar-btn">Movies</span>
+        <span className="navbar-btn">TV Shows</span>
+        <span className="navbar-btn">My List</span>
+      </nav>
+    </header>
   );
 }
