@@ -2,7 +2,9 @@ import React from "react";
 
 export default class LandingPage extends React.Component {
   componentDidMount() {
-    console.log("We are ready to begin initialising list");
+    this.props.createUserList();
+
+    console.log(this.props.userList[0].name);
   }
   render() {
     return (

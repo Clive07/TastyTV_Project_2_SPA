@@ -20,7 +20,7 @@ My first goal is to build the default layout for the site. The navbar won't work
 
 I am modularising the css so it can be any part can be found and adjusted quicker.
 
-The landing page will be a class instead of a function so that I can utilise componentDidMount. Here I will initialise the list for the user.
+The landing page will be a class instead of a function so that I can utilise componentDidMount. Here I will call the function which sets the starter list for the users. This will be sourced from the main container.
 
 ### Deliverables
 
