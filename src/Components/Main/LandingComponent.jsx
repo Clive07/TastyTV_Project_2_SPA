@@ -1,9 +1,6 @@
 import React from "react";
 
 export default class LandingPage extends React.Component {
-  componentDidMount() {
-    this.props.createUserList();
-  }
   render() {
     return (
       <main>

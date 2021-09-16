@@ -10,7 +10,7 @@ import "./styles/styles.css";
 
 export default function App() {
   //declaring & initialising first page with useState.
-  const [currentPage, setPage] = useState("land");
+  const [currentPage, setPage] = useState("");
 
   //declaring names for each page
   const pages = {
@@ -30,13 +30,8 @@ export default function App() {
     //container for components
     <div className="App">
       {/* header, gains custom elements of function to switch page and the names of said pages*/}
-      <Header
-        movieNav={pages.moviePage}
-        tvNav={pages.tvPage}
-        userNav={pages.userPage}
-        switchPage={switchPage}
-      />
-      {/*  */}
+      <Header navButtons={pages} switchPage={switchPage} />
+      {/*  gains cust eles of current page and page names to conditionally render one. */}
       <MainContainer pageName={pages} currentPage={currentPage} />
     </div>
   );

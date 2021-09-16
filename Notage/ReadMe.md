@@ -30,6 +30,8 @@ I also wish to prepare the component which will present the list for the user. I
 
 Now I wish to implement the mark as watched deliverable. I will add a btn for each media item and have it so on click it will set watched to true instead of false. which will reRender the page showing this result. This will be set up so it also works in reverse if the user wishes to change it back.
 
+I want to make sure i have good comments and a good naming scheme.
+
 ### Deliverables
 
 A functional React SPA without any backend built by you, hosted somewhere on the internet that delivers on the following scope of work derived from the client brief:

@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import LandingPage from "./LandingComponent";
 import UserListPage from "./UserPage/UserListContainerComponent";
+import MoviePage from "./MoviePage/MovieContainer";
+import TVPage from "./tvPage/TVContainer";
 
 export default function MainContainer(props) {
-  const [list, alterList] = useState();
-
-  async function starterList() {
+  const [list, setList] = useState(async () => {
     const dummyAPI = "https://hub.dummyapis.com/vj/wzGUkpZ";
 
     try {
@@ -15,20 +15,20 @@ export default function MainContainer(props) {
 
       let firstList = starterListRetrieve.data;
 
-      alterList(firstList);
+      return setList(firstList);
     } catch (err) {
       console.log(`ERROR with dummy API`);
       console.log(err);
 
-      return null;
+      return [];
     }
-  }
+  });
 
   function onWatchChange(id) {
     let watchList = list;
     watchList[id].watched = !watchList[id].watched;
 
-    return alterList([...watchList]);
+    return setList([...watchList]);
   }
 
   return (
@@ -36,15 +36,17 @@ export default function MainContainer(props) {
       <h2>MainContainer</h2>
 
       {props.currentPage === props.pageName.moviePage ? (
-        <LandingPage createUserList={starterList} />
+        <MoviePage />
+      ) : props.currentPage === props.pageName.tvPage ? (
+        <TVPage />
       ) : props.currentPage === props.pageName.userPage ? (
         <UserListPage
           watchList={list}
-          updateList={alterList}
+          updateList={setList}
           handleWatch={onWatchChange}
         />
       ) : (
-        <LandingPage createUserList={starterList} />
+        <LandingPage />
       )}
     </div>
   );
