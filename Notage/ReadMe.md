@@ -22,6 +22,12 @@ I am modularising the css so it can be any part can be found and adjusted quicke
 
 The landing page will be a class instead of a function so that I can utilise componentDidMount. Here I will call the function which sets the starter list for the users. This will be sourced from the main container.
 
+With this done
+
+I can now look to functionalise the My List btn to open it's page if clicked. This will be done using conditional rendering.
+
+I also wish to prepare the component which will present the list for the user.
+
 ### Deliverables
 
 A functional React SPA without any backend built by you, hosted somewhere on the internet that delivers on the following scope of work derived from the client brief:

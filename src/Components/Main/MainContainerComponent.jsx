@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import LandingPage from "./LandingComponent";
+import UserListPage from "./UserListContainerComponent";
 
-export default function MainContainer() {
+export default function MainContainer(props) {
   const [list, alterList] = useState();
 
   async function starterList() {
@@ -22,5 +23,18 @@ export default function MainContainer() {
       return null;
     }
   }
-  return <LandingPage createUserList={starterList} userList={list} />;
+
+  return (
+    <div>
+      <h2>MainContainer</h2>
+
+      {props.currentPage === "land" ? (
+        <LandingPage createUserList={starterList} />
+      ) : props.currentPage === "userList" ? (
+        <UserListPage />
+      ) : (
+        <h3>nothing here</h3>
+      )}
+    </div>
+  );
 }
