@@ -31,7 +31,7 @@ export default function MainContainer(props) {
       {props.currentPage === "land" ? (
         <LandingPage createUserList={starterList} />
       ) : props.currentPage === "userList" ? (
-        <UserListPage />
+        <UserListPage watchList={list} />
       ) : (
         <h3>nothing here</h3>
       )}

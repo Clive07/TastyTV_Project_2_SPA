@@ -26,7 +26,7 @@ With this done
 
 I can now look to functionalise the My List btn to open it's page if clicked. This will be done using conditional rendering.
 
-I also wish to prepare the component which will present the list for the user.
+I also wish to prepare the component which will present the list for the user. I will use array.map in order to the one component display every media item.
 
 ### Deliverables
 
