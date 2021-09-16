@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import LandingPage from "./LandingComponent";
-import UserListPage from "./UserListContainerComponent";
+import UserListPage from "./UserPage/UserListContainerComponent";
 
 export default function MainContainer(props) {
   const [list, alterList] = useState();
@@ -35,16 +35,16 @@ export default function MainContainer(props) {
     <div>
       <h2>MainContainer</h2>
 
-      {props.currentPage === "land" ? (
+      {props.currentPage === props.pageName.moviePage ? (
         <LandingPage createUserList={starterList} />
-      ) : props.currentPage === "userList" ? (
+      ) : props.currentPage === props.pageName.userPage ? (
         <UserListPage
           watchList={list}
           updateList={alterList}
           handleWatch={onWatchChange}
         />
       ) : (
-        <h3>nothing here</h3>
+        <LandingPage createUserList={starterList} />
       )}
     </div>
   );
