@@ -24,6 +24,13 @@ export default function MainContainer(props) {
     }
   }
 
+  function onWatchChange(id) {
+    let watchList = list;
+    watchList[id].watched = !watchList[id].watched;
+
+    return alterList([...watchList]);
+  }
+
   return (
     <div>
       <h2>MainContainer</h2>
@@ -31,7 +38,11 @@ export default function MainContainer(props) {
       {props.currentPage === "land" ? (
         <LandingPage createUserList={starterList} />
       ) : props.currentPage === "userList" ? (
-        <UserListPage watchList={list} />
+        <UserListPage
+          watchList={list}
+          updateList={alterList}
+          handleWatch={onWatchChange}
+        />
       ) : (
         <h3>nothing here</h3>
       )}

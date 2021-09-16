@@ -12,7 +12,7 @@ This was done using paper and pen, and Google Docs. These can be seen within the
 
 I should note with this project at the start I'm ignoring the optional goals. My main focus is getting the deliverables completed to satisfaction before I will look to adding more features. This is to ensure my energy isn't too spread out on the off chance that I run out of time.
 
-After I felt this initial point had been sufficently worked on, and knowing I am likely to return to it periodically for additional pondering and adjustments. I then will proceed to create the template for the app using the site Codesandbox. With this I can then link/create a GitHub repository and set the initial commit.
+After I feel this initial point had been sufficently worked on, and knowing I am likely to return to it periodically for additional pondering and adjustments. I then will proceed to create the template for the app using the site Codesandbox. With this I can then link/create a GitHub repository and set the initial commit.
 
 Following that
 
@@ -27,6 +27,8 @@ With this done
 I can now look to functionalise the My List btn to open it's page if clicked. This will be done using conditional rendering.
 
 I also wish to prepare the component which will present the list for the user. I will use array.map in order to the one component display every media item.
+
+Now I wish to implement the mark as watched deliverable. I will add a btn for each media item and have it so on click it will set watched to true instead of false. which will reRender the page showing this result. This will be set up so it also works in reverse if the user wishes to change it back.
 
 ### Deliverables
 

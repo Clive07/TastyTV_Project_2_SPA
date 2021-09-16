@@ -9,9 +9,11 @@ export default function UserListPage(props) {
         return (
           <UserWatchList
             key={index}
+            id={index}
             title={media.name}
             released={media.releasedOn}
             watched={media.watched}
+            watchBtnClick={props.handleWatch}
           />
         );
       })}
