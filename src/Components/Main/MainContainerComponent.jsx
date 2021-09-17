@@ -64,6 +64,20 @@ export default function MainContainer(props) {
     });
   }
 
+  //Delete ALL function. removes all items from the list.
+  function onDeleteAll() {
+    setList([]);
+  }
+
+  //Watched removal function. Filters through list removing any with watched bool prop === true
+  function onRemoveWatched() {
+    setList((prevList) => {
+      return prevList.filter((media) => {
+        return media.watched !== true;
+      });
+    });
+  }
+
   //What the component will actually display.
   return (
     <div>
@@ -76,11 +90,14 @@ export default function MainContainer(props) {
         <TVPage />
       ) : props.currentPage === props.pageName.userPage ? (
         //User List Container. Has cust eles to show and update list, and to change watched property.
+        //and to handle removing items from list based off clicking buttons
         <UserListPage
           watchList={list}
           updateList={setList}
           handleWatch={onWatchToggle}
           handleDelete={onDelete}
+          handleDeleteAll={onDeleteAll}
+          handleRemoveWatched={onRemoveWatched}
         />
       ) : (
         <LandingPage />

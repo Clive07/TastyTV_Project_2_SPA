@@ -32,6 +32,14 @@ Now I wish to implement the mark as watched deliverable. I will add a btn for ea
 
 I want to make sure i have good comments and a good naming scheme.
 
+Now I intend to add the delete features. First is the ability to remove any one of the media items from the list. Second will be to remove all of them at once and the third part will be the ability to remove only the ones marked as watched.
+
+first feature is simple. filter through the list and remove the media item with the same id as the component displaying it and reset list.
+
+second one is easiest. if button is click. remove the entire list and reset.
+
+third one will require another filtering through but this time rejecting any which watched bool prop equals to true
+
 ### Deliverables
 
 A functional React SPA without any backend built by you, hosted somewhere on the internet that delivers on the following scope of work derived from the client brief:
