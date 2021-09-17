@@ -43,7 +43,7 @@ export default function MainContainer(props) {
   });
 
   //function to switch media item from watched to unwatched and vice versa.
-  function hasWatchedChange(id) {
+  function onWatchToggle(id) {
     //set a new var equal to the current list.
     let watchList = list;
 
@@ -53,6 +53,15 @@ export default function MainContainer(props) {
     //reset the list with this updated version
     //importing to note due to the small change. MUST spread the new var to ensure a reRender
     return setList([...watchList]);
+  }
+
+  //Delete function. identifies specific media with id and removes it from list.
+  function onDelete(id) {
+    setList((prevList) => {
+      return prevList.filter((media, index) => {
+        return index !== id;
+      });
+    });
   }
 
   //What the component will actually display.
@@ -70,7 +79,8 @@ export default function MainContainer(props) {
         <UserListPage
           watchList={list}
           updateList={setList}
-          handleWatch={hasWatchedChange}
+          handleWatch={onWatchToggle}
+          handleDelete={onDelete}
         />
       ) : (
         <LandingPage />

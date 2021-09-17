@@ -18,6 +18,7 @@ export default function UserListPage(props) {
             released={media.releasedOn}
             watched={media.watched}
             watchBtnClick={props.handleWatch}
+            deleteBtnClick={props.handleDelete}
           />
         );
       })}
