@@ -42,6 +42,10 @@ third one will require another filtering through but this time rejecting any whi
 
 with the majority of functions out of the way. I will now go about setting up most of the actual appearance of the app.
 
+connected up to material ui and bootstrap for this.
+
+added edit option by giving a like/dislike feature. I will have hollow thumbs to show it isn't picked yet and when picked it will be black. upon picking a new property will be added to the state showing if liked or disliked. This property will be checked for the conditional rendering.
+
 ### Deliverables
 
 A functional React SPA without any backend built by you, hosted somewhere on the internet that delivers on the following scope of work derived from the client brief:

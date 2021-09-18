@@ -78,6 +78,20 @@ export default function MainContainer(props) {
     });
   }
 
+  function onLikeRating(id) {
+    setList((prevList) => {
+      prevList[id].rating = "liked";
+      return [...prevList];
+    });
+  }
+
+  function onDislikeRating(id) {
+    setList((prevList) => {
+      prevList[id].rating = "disliked";
+      return [...prevList];
+    });
+  }
+
   //What the component will actually display.
   return (
     <div>
@@ -98,6 +112,8 @@ export default function MainContainer(props) {
           handleDelete={onDelete}
           handleDeleteAll={onDeleteAll}
           handleRemoveWatched={onRemoveWatched}
+          handleLikeRating={onLikeRating}
+          handleDislikeRating={onDislikeRating}
         />
       ) : (
         <LandingPage />

@@ -25,8 +25,11 @@ export default function UserListPage(props) {
             title={media.name}
             released={media.releasedOn}
             watched={media.watched}
+            rating={media.rating}
             watchBtnClick={props.handleWatch}
             deleteBtnClick={props.handleDelete}
+            likeBtnClick={props.handleLikeRating}
+            dislikeBtnClick={props.handleDislikeRating}
           />
         );
       })}
