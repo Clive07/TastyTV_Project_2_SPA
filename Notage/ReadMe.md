@@ -40,6 +40,8 @@ second one is easiest. if button is click. remove the entire list and reset.
 
 third one will require another filtering through but this time rejecting any which watched bool prop equals to true
 
+with the majority of functions out of the way. I will now go about setting up most of the actual appearance of the app.
+
 ### Deliverables
 
 A functional React SPA without any backend built by you, hosted somewhere on the internet that delivers on the following scope of work derived from the client brief:

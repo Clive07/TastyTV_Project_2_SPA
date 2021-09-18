@@ -1,6 +1,12 @@
 //imports
 import React from "react";
 
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
 export default function UserWatchList(props) {
   //handles clicking of the watched button & delete button
   function handleClick(event) {
@@ -20,22 +26,29 @@ export default function UserWatchList(props) {
       {/* conditional rendering based on if the content has been watched or not. */}
       {props.watched === false ? (
         <div>
-          <p>Not Watched</p>{" "}
+          <VisibilityOffIcon />
+          <p>Not Watched</p>
           <button name="watchBtn" onClick={handleClick}>
             Watched
           </button>
         </div>
       ) : (
         <div>
-          <p>Watched</p>{" "}
+          <VisibilityIcon />
+          <p>Watched</p>
           <button name="watchBtn" onClick={handleClick}>
             Unwatch
           </button>
         </div>
       )}
-      <button name="deleteBtn" onClick={handleClick}>
+      <Button
+        name="deleteBtn"
+        variant="outlined"
+        startIcon={<DeleteIcon />}
+        onClick={handleClick}
+      >
         Remove
-      </button>
+      </Button>
     </section>
   );
 }
