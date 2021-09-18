@@ -14,6 +14,7 @@ export default function App() {
 
   //declaring names for each page
   const pages = {
+    homePage: "home",
     moviePage: "movieList",
     tvPage: "tvList",
     userPage: "userList"

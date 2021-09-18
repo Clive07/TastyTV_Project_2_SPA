@@ -1,44 +1,59 @@
 import "../../styles/header-styles.css";
 import React from "react";
+import Button from "@mui/material/Button";
+import MovieCreationIcon from "@mui/icons-material/MovieCreation";
+import TvIcon from "@mui/icons-material/Tv";
+import ListIcon from "@mui/icons-material/List";
+import HomeIcon from "@mui/icons-material/Home";
 
 export default function HeaderContainer(props) {
   function handleClick(event) {
-    console.log(event.target.id);
-    props.switchPage(event.target.id);
+    console.log(event.target.name);
+    props.switchPage(event.target.name);
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-3">
-          <h1 id="title">TastyTV's App!</h1>
-        </div>
-        <div className="col-md-9">
-          <nav id="navbar">
-            <span
-              id={props.navButtons.moviePage}
-              className="navbar-btn"
-              onClick={handleClick}
-            >
-              Movies
-            </span>
-            <span
-              id={props.navButtons.tvPage}
-              className="navbar-btn"
-              onClick={handleClick}
-            >
-              TV Shows
-            </span>
-            <span
-              id={props.navButtons.userPage}
-              className="btn btn-info"
-              onClick={handleClick}
-            >
-              My List
-            </span>
-          </nav>
-        </div>
-      </div>
-    </div>
+    <header id="header">
+      <h1 id="title">TastyTV</h1>
+
+      <nav id="navbar">
+        <Button
+          name={props.navButtons.homePage}
+          className="navButton"
+          variant="contained"
+          startIcon={<HomeIcon />}
+          onClick={handleClick}
+        >
+          Home
+        </Button>
+        <Button
+          name={props.navButtons.moviePage}
+          className="navButton"
+          variant="contained"
+          startIcon={<MovieCreationIcon />}
+          onClick={handleClick}
+        >
+          Movies
+        </Button>
+        <Button
+          name={props.navButtons.tvPage}
+          className="navButton"
+          variant="contained"
+          startIcon={<TvIcon />}
+          onClick={handleClick}
+        >
+          TV Shows
+        </Button>
+        <Button
+          name={props.navButtons.userPage}
+          className="navButton"
+          variant="contained"
+          startIcon={<ListIcon />}
+          onClick={handleClick}
+        >
+          My List
+        </Button>
+      </nav>
+    </header>
   );
 }
