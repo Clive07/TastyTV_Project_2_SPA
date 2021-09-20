@@ -1,0 +1,40 @@
+#home-container {
+  margin: 5px 5px 0px 5px;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  height: 200px;
+  align-items: center;
+  margin: 5px;
+}
+
+.carousel-container {
+  display: flex;
+  width: max-content;
+  overflow: hidden;
+  transform: translateX(0px);
+  transition: all 1s ease;
+}
+
+.sliderArrow {
+  height: 100%;
+  width: 50px;
+  background-color: rgb(34, 33, 33, 0.5);
+  position: absolute;
+  z-index: 99;
+  color: white;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}

@@ -1,36 +1,62 @@
 //disabling to remove issues with axios
 /*eslint-disable */
 
+//main container. Displays one of the various pages for the app based on conditional rendering.
+//holds the state for the user's list of media.
+//source of truth for various functions
+
 //imports
 import React, { useState } from "react";
+import { Button } from "@mui/material";
 
 //various pages/containers
-import LandingPage from "./LandingComponent";
+import LandingPage from "./HomePage/LandingComponent";
 import UserListPage from "./UserPage/UserListContainerComponent";
 import MoviePage from "./MoviePage/MovieContainer";
 import TVPage from "./tvPage/TVContainer";
 
 //main container
 export default function MainContainer(props) {
-  //creating a state using an array of objects. Each object is a media item.
-  //initial value is an async axios promise. Returned empty array upon failure.
-  const [list, setList] = useState(async () => {
+  //creating a state to hold  an array of objects. Each object is a media item.
+  const [list, setList] = useState([
+    {
+      name: "Clive",
+      releasedOn: "16/07/1995",
+      watched: false,
+      bannerUrl:
+        "https://hub.dummyapis.com/Image?text=Clive&height=150&width=150"
+    }
+  ]);
+
+  //function to acquire list for user
+  const fillList = async () => {
     //client's dummy api url.
     const dummyAPI = "https://hub.dummyapis.com/vj/wzGUkpZ";
-
     //try to reach to out to the server and retrieve the media list.
+    //var's for better bannerURL for List
+    const url = "https://hub.dummyapis.com/Image?";
+    const imageSize = "height=150&width=150";
+
+    //try to get list from api server
     try {
-      let starterListRetrieve = await axios.get(dummyAPI);
+      let ListRetrieve = await axios.get(dummyAPI);
 
       //checks if retrieved array is valid. throws error if not.
-      if (starterListRetrieve.data.Id === 1001) {
+      if (ListRetrieve.data.Id === 1001) {
         throw new Error();
       }
-      //if it is valid. setList to this valid array.
+      //if it is valid. fix dummy bannerurl property
       else {
-        let firstList = starterListRetrieve.data;
+        let rawList = ListRetrieve.data;
 
-        return setList(firstList);
+        let preparedList = rawList.map((media) => {
+          media.bannerUrl = `${url}text=${media.name}&${imageSize}`;
+          return media;
+        });
+
+        return setList((prevList) => {
+          return [...prevList, ...preparedList];
+        });
       }
     } catch (err) {
       //catch and potential error. log it and return and empty array for the starting List
@@ -38,9 +64,11 @@ export default function MainContainer(props) {
       console.log(`ERROR with dummy API`);
       console.log(err);
 
-      return setList([]);
+      return setList((prevList) => {
+        return [...prevList];
+      });
     }
-  });
+  };
 
   //function to switch media item from watched to unwatched and vice versa.
   function onWatchToggle(id) {
@@ -95,8 +123,9 @@ export default function MainContainer(props) {
   //What the component will actually display.
   return (
     <div>
-      <h2>MainContainer</h2>
-
+      <Button id="add-button" variant="contained" onClick={fillList}>
+        Click Me To Add Random Media To Your List!
+      </Button>
       {/* conditional rendering. Checks name of current page to the name of pages and display the matching page. */}
       {props.currentPage === props.pageName.moviePage ? (
         <MoviePage />
@@ -116,7 +145,12 @@ export default function MainContainer(props) {
           handleDislikeRating={onDislikeRating}
         />
       ) : (
-        <LandingPage />
+        <LandingPage
+          userList={list}
+          handleLikeRating={onLikeRating}
+          handleDislikeRating={onDislikeRating}
+          handleWatch={onWatchToggle}
+        />
       )}
     </div>
   );
