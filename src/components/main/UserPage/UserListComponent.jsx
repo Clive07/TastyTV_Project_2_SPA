@@ -3,7 +3,6 @@ import React from "react";
 
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Rating from "@mui/material/Rating";
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -13,7 +12,7 @@ import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
-import { ButtonGroup, Typography } from "@mui/material";
+import { ButtonGroup } from "@mui/material";
 
 export default function UserWatchList(props) {
   //handles clicking of the watched button & delete button
@@ -102,8 +101,6 @@ export default function UserWatchList(props) {
       ) : (
         <p>error with rating</p>
       )}
-      <Typography component="legend">Rating: </Typography>
-      <Rating value={2} />
     </section>
   );
 }

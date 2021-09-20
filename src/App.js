@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 
 //container components
-import Header from "./Components/Header/HeaderContainer";
-import MainContainer from "./Components/Main/MainContainerComponent";
+import Header from "./components/header/HeaderContainer";
+import MainContainer from "./components/main/MainContainerComponent";
 
 //overall stylesheet
 import "./styles/styles.css";

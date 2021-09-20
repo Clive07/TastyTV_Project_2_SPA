@@ -1,19 +1,27 @@
 #home-container {
-  margin: 5px 5px 0px 5px;
+  width: 100%;
 }
 
+.carousel-title {
+  text-align: left;
+  margin-left: 30px;
+}
 .wrapper {
   display: flex;
   position: relative;
-  height: 200px;
+  height: 400px;
   align-items: center;
-  margin: 5px;
+  margin: 30px 20px 70px 20px;
+}
+
+#initialButton {
+  width: 10vw;
+  margin-left: 45vw;
 }
 
 .carousel-container {
   display: flex;
   width: max-content;
-  overflow: hidden;
   transform: translateX(0px);
   transition: all 1s ease;
 }

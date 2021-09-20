@@ -7,24 +7,90 @@
 
 //imports
 import React, { useState } from "react";
-import { Button } from "@mui/material";
 
 //various pages/containers
-import LandingPage from "./HomePage/LandingComponent";
+import LandingPage from "./home-page/LandingComponent";
 import UserListPage from "./UserPage/UserListContainerComponent";
 import MoviePage from "./MoviePage/MovieContainer";
 import TVPage from "./tvPage/TVContainer";
 
 //main container
 export default function MainContainer(props) {
+  //var's for better bannerURL for List
+  const url = "https://hub.dummyapis.com/Image?";
+  const imageSize = "height=250&width=150";
+
+  //creating small array of tvShows
+  const tvShows = [
+    {
+      id: "T1",
+      name: "Scrubs",
+      releasedOn: "01/01/1999",
+      watched: false,
+      bannerUrl: `${url}text=Scrubs&${imageSize}`
+    },
+    {
+      id: "T2",
+      name: "How I Met Yo Momma",
+      releasedOn: "02/02/2002",
+      watched: false,
+      bannerUrl: `${url}text=How-I-Met-Momma&${imageSize}`
+    },
+    {
+      id: "T3",
+      name: "Doom Patrol",
+      releasedOn: "07/11/2010",
+      watched: false,
+      bannerUrl: `${url}text=Doom-Patrol&${imageSize}`
+    },
+    {
+      id: "T4",
+      name: "Archer",
+      releasedOn: "01/01/2007",
+      watched: false,
+      bannerUrl: `${url}text=Archer&${imageSize}`
+    }
+  ];
+
+  //creating small movie array
+  const movies = [
+    {
+      id: "M1",
+      name: "Blade Runner",
+      releasedOn: "18/04/1989",
+      watched: false,
+      bannerUrl: `${url}text=Blade-Runner&${imageSize}`
+    },
+    {
+      id: "M2",
+      name: "Pirates of The Caribean",
+      releasedOn: "23/07/2003",
+      watched: false,
+      bannerUrl: `${url}text=Pirates&${imageSize}`
+    },
+    {
+      id: "M3",
+      name: "The Incredibles",
+      releasedOn: "07/04/2007",
+      watched: false,
+      bannerUrl: `${url}text=Incredibles&${imageSize}`
+    },
+    {
+      id: "M4",
+      name: "Blade",
+      releasedOn: "01/01/2001",
+      watched: false,
+      bannerUrl: `${url}text=Blade&${imageSize}`
+    }
+  ];
+
   //creating a state to hold  an array of objects. Each object is a media item.
   const [list, setList] = useState([
     {
       name: "Clive",
       releasedOn: "16/07/1995",
       watched: false,
-      bannerUrl:
-        "https://hub.dummyapis.com/Image?text=Clive&height=150&width=150"
+      bannerUrl: `${url}text=Clive&${imageSize}`
     }
   ]);
 
@@ -32,10 +98,6 @@ export default function MainContainer(props) {
   const fillList = async () => {
     //client's dummy api url.
     const dummyAPI = "https://hub.dummyapis.com/vj/wzGUkpZ";
-    //try to reach to out to the server and retrieve the media list.
-    //var's for better bannerURL for List
-    const url = "https://hub.dummyapis.com/Image?";
-    const imageSize = "height=150&width=150";
 
     //try to get list from api server
     try {
@@ -106,6 +168,7 @@ export default function MainContainer(props) {
     });
   }
 
+  //function setting media rating to liked
   function onLikeRating(id) {
     setList((prevList) => {
       prevList[id].rating = "liked";
@@ -113,6 +176,7 @@ export default function MainContainer(props) {
     });
   }
 
+  //function setting media rating to dislike
   function onDislikeRating(id) {
     setList((prevList) => {
       prevList[id].rating = "disliked";
@@ -123,9 +187,6 @@ export default function MainContainer(props) {
   //What the component will actually display.
   return (
     <div>
-      <Button id="add-button" variant="contained" onClick={fillList}>
-        Click Me To Add Random Media To Your List!
-      </Button>
       {/* conditional rendering. Checks name of current page to the name of pages and display the matching page. */}
       {props.currentPage === props.pageName.moviePage ? (
         <MoviePage />
@@ -137,6 +198,7 @@ export default function MainContainer(props) {
         <UserListPage
           watchList={list}
           updateList={setList}
+          handleAdd={fillList}
           handleWatch={onWatchToggle}
           handleDelete={onDelete}
           handleDeleteAll={onDeleteAll}
@@ -147,6 +209,9 @@ export default function MainContainer(props) {
       ) : (
         <LandingPage
           userList={list}
+          showList={tvShows}
+          movieList={movies}
+          handleAdd={fillList}
           handleLikeRating={onLikeRating}
           handleDislikeRating={onDislikeRating}
           handleWatch={onWatchToggle}
