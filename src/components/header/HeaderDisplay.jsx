@@ -4,12 +4,12 @@ import MovieCreationIcon from "@mui/icons-material/MovieCreation";
 import TvIcon from "@mui/icons-material/Tv";
 import ListIcon from "@mui/icons-material/List";
 import HomeIcon from "@mui/icons-material/Home";
-import "./header-styles.css";
+import "./header-display-styles.css";
 
 export default function HeaderContainer(props) {
   //function that handles the clicking of navbar button
-  function handleClick(event) {
-    props.switchPage(event.target.name);
+  function handleClick(newPage) {
+    props.setPage(newPage);
   }
 
   return (
@@ -23,38 +23,42 @@ export default function HeaderContainer(props) {
         {/* navbar, contains home, movie, tv and user page buttons. material ui used for styles */}
         <nav id="navbar">
           <Button
-            name={props.navButtons.homePage}
             className="nav-button"
             variant="contained"
             startIcon={<HomeIcon />}
-            onClick={handleClick}
+            onClick={() => {
+              handleClick("home");
+            }}
           >
             Home
           </Button>
           <Button
-            name={props.navButtons.moviePage}
             className="nav-button"
             variant="contained"
             startIcon={<MovieCreationIcon />}
-            onClick={handleClick}
+            onClick={() => {
+              handleClick("movies");
+            }}
           >
             Movies
           </Button>
           <Button
-            name={props.navButtons.tvPage}
             className="nav-button"
             variant="contained"
             startIcon={<TvIcon />}
-            onClick={handleClick}
+            onClick={() => {
+              handleClick("shows");
+            }}
           >
             TV Shows
           </Button>
           <Button
-            name={props.navButtons.userPage}
             className="nav-button"
             variant="contained"
             startIcon={<ListIcon />}
-            onClick={handleClick}
+            onClick={() => {
+              handleClick("user");
+            }}
           >
             My List
           </Button>
