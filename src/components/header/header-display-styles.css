@@ -1,0 +1,45 @@
+/* setting background colour for the header/banner */
+#header {
+  background: linear-gradient(#90e0ef, #0077b6);
+}
+
+/* setting display style for the main content of the header. */
+#main-header {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* creating space around title and border effect*/
+#title {
+  margin: 25px;
+  padding: 5px;
+  border: 2px solid black;
+}
+
+/* spacing for navbar container */
+#navbar {
+  margin: 25px;
+}
+
+/* spacing for navbar buttons */
+.nav-button {
+  margin: 2.5px;
+}
+
+/* styling set up for spacial div */
+#space {
+  width: 80%;
+  height: 10px;
+  margin: 0% 10%;
+
+  border-top: 4px solid black;
+}
+
+/* central text alignment & padding for subtitle */
+#sub-title {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 20px;
+}

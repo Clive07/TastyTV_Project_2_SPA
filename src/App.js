@@ -1,12 +1,15 @@
-import HeaderContainer from "./Components/Header/HeaderContainerComponent";
-import MainContainer from "./Components/Main/MainContainerComponent";
-import "./styles/styles.css";
+//imports
+import React from "react";
+
+//container components
+import TastyScreen from "./components/tasty-screen/TastyScreen";
 
 export default function App() {
+  //rendering header & main containers
   return (
+    //container for components
     <div className="App">
-      <HeaderContainer />
-      <MainContainer />
+      <TastyScreen />
     </div>
   );
 }
